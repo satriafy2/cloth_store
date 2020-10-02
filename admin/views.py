@@ -1,15 +1,10 @@
-# from django.shortcuts import render
 from django.http import JsonResponse
-# from django.views.decorators.http import require_http_methods as req_methods
 from django.views import View
-from django.core import serializers
-# from django.shortcuts import get_object_or_404
 
 from .models import Item, OnSale
 import json
 import datetime
 
-# @req_methods(['POST'])
 
 class Items(View):
     def get(self, request):
