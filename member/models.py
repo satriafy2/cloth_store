@@ -19,6 +19,8 @@ class Transaction(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False)
     id_member   = models.IntegerField()
     id_item     = models.IntegerField()
+    qty         = models.IntegerField(default=1)
+    total       = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     trx_date    = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -14,10 +14,12 @@ class Item(models.Model):
 
 
 class OnSale(models.Model):
-    id_sale = models.AutoField(primary_key=True)
-    id_item = models.IntegerField()
-    sale_expiry = models.DateTimeField()
-    date_added = models.DateTimeField(auto_now_add=True)
+    id_sale     = models.AutoField(primary_key=True)
+    id_item     = models.IntegerField()
+    discount    = models.DecimalField(decimal_places=2, max_digits=4, default=0)
+    sale_start  = models.DateTimeField(default=None)
+    sale_expiry = models.DateTimeField(default=None)
+    date_added  = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'bajigur_onsale'
@@ -26,7 +28,8 @@ class OnSale(models.Model):
 class Featured(models.Model):
     id_feature  = models.AutoField(primary_key=True)
     id_item     = models.IntegerField()
-    feature_expiry  = models.DateTimeField()
+    feature_start   = models.DateTimeField(default=None)
+    feature_expiry  = models.DateTimeField(default=None)
     date_added      = models.DateTimeField(auto_now_add=True)
 
     class Meta:
